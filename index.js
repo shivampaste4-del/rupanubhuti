@@ -8,7 +8,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname));
 const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -18,7 +18,7 @@ const pool = new Pool({
 });
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "rupanubhuti.html"));
+    res.sendFile(path.join(__dirname, "rupanubhuti.html"));
 });
 app.get("/api/test-db", async (req, res) => {
     try {
@@ -425,5 +425,5 @@ app.get("/api/dashboard", async (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
