@@ -9,6 +9,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
+app.use("/images", 
+express.static(__dirname));
 const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
