@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Rupanubhuti | Book Your Slot</title>
+
+<style>
+
+/* ================= BASIC ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.72),
+            rgba(0,0,0,0.88)
+        ),
+        url("booking-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+
+/* ================= NAVBAR ================= */
+
+nav {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 25px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 100;
+
+    background:
+        rgba(0,0,0,0.35);
+
+    backdrop-filter:
+        blur(10px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
+}
+
+.logo {
+
+    font-size: 22px;
+
+    letter-spacing: 5px;
+
+    font-weight: bold;
+}
+
+.back {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.back:hover {
+
+    color: #c9aa7c;
+}
+
+
+/* ================= MAIN ================= */
+
+.container {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 120px 20px 60px;
+}
+
+
+/* ================= BOOKING BOX ================= */
+
+.booking-box {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    padding: 45px;
+
+    background:
+        rgba(18,18,18,0.82);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,0.65);
+
+    animation:
+        appear 1s ease;
+}
+
+@keyframes appear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(45px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ================= HEADING ================= */
+
+.heading {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.heading small {
+
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: #c9aa7c;
+}
+
+.heading h1 {
+
+    margin-top: 14px;
+
+    font-size:
+        clamp(40px, 7vw, 60px);
+
+    font-weight: normal;
+
+    letter-spacing: 4px;
+}
+
+.heading p {
+
+    margin-top: 12px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    color: #999;
+}
+
+
+/* ================= SELECTED PACKAGE ================= */
+
+.selected-package {
+
+    margin-bottom: 30px;
+
+    padding: 18px 20px;
+
+    border:
+        1px solid
+        rgba(201,170,124,0.45);
+
+    background:
+        rgba(201,170,124,0.08);
+
+    text-align: center;
+}
+
+.selected-package span {
+
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #aaa;
+
+    margin-bottom: 7px;
+}
+
+.selected-package strong {
+
+    font-size: 20px;
+
+    font-weight: normal;
+
+    color: #c9aa7c;
+}
+
+
+/* ================= FORM ================= */
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+}
+
+.field {
+
+    margin-bottom: 20px;
+}
+
+.field label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #ccc;
+}
+
+.field input,
+.field select,
+.field textarea {
+
+    width: 100%;
+
+    padding: 14px 15px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.22);
+
+    color: white;
+
+    outline: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+
+    border-color:
+        #c9aa7c;
+
+    background:
+        rgba(255,255,255,0.09);
+
+    box-shadow:
+        0 0 15px
+        rgba(201,170,124,0.08);
+}
+
+.field select option {
+
+    background: #151515;
+
+    color: white;
+}
+
+.field textarea {
+
+    height: 110px;
+
+    resize: none;
+}
+
+
+/* ================= BUTTON ================= */
+
+.submit-btn {
+
+    width: 100%;
+
+    padding: 17px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    background:
+        #c9aa7c;
+
+    color: #111;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.submit-btn:hover {
+
+    background: white;
+
+    letter-spacing: 5px;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(255,255,255,0.1);
+}
+
+
+/* ================= SUCCESS ================= */
+
+.success {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 40px 10px;
+}
+
+.success-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    margin:
+        0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        #c9aa7c;
+
+    border-radius: 50%;
+
+    color:
+        #c9aa7c;
+
+    font-size: 30px;
+
+    animation:
+        pop 0.6s ease;
+}
+
+@keyframes pop {
+
+    from {
+
+        transform:
+            scale(0);
+
+        opacity: 0;
+    }
+
+    to {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+}
+
+.success h2 {
+
+    font-size: 32px;
+
+    font-weight: normal;
+
+    margin-bottom: 12px;
+}
+
+.success p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    color: #999;
+
+    line-height: 1.8;
+}
+
+.success .home-btn {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 13px 25px;
+
+    border:
+        1px solid
+        #c9aa7c;
+
+    color:
+        #c9aa7c;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.success .home-btn:hover {
+
+    background:
+        #c9aa7c;
+
+    color: #111;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 650px) {
+
+    nav {
+
+        padding:
+            20px;
+    }
+
+    .logo {
+
+        font-size: 17px;
+
+        letter-spacing: 3px;
+    }
+
+    .back {
+
+        font-size: 8px;
+    }
+
+    .container {
+
+        padding:
+            110px 15px 40px;
+    }
+
+    .booking-box {
+
+        padding:
+            30px 20px;
+    }
+
+    .form-row {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 0;
+    }
+
+    .heading h1 {
+
+        font-size: 40px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <div class="logo">
+        RUPANUBHUTI
+    </div>
+
+    <a
+        href="packages.html"
+        class="back">
+
+        ← BACK TO PACKAGES
+
+    </a>
+
+</nav>
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="container">
+
+    <div class="booking-box">
+
+
+        <!-- ================= HEADING ================= -->
+
+        <div class="heading">
+
+            <small>
+                RUPANUBHUTI PHOTOGRAPHY STUDIO
+            </small>
+
+            <h1>
+                Book Your Slot
+            </h1>
+
+            <p>
+                Let's capture your beautiful moments.
+            </p>
+
+        </div>
+
+
+        <!-- ================= SELECTED PACKAGE ================= -->
+
+        <div
+            class="selected-package"
+            id="selectedPackageBox">
+
+            <span>
+                SELECTED PACKAGE
+            </span>
+
+            <strong id="selectedPackageText">
+                Please select a package
+            </strong>
+
+        </div>
+
+
+        <!-- ================= FORM ================= -->
+
+        <form id="bookingForm">
+
+
+            <!-- NAME + PHONE -->
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label>
+                        YOUR NAME
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        required>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        PHONE NUMBER
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter phone number"
+                        pattern="[0-9]{10}"
+                        maxlength="10"
+                        required>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- EMAIL + PACKAGE -->
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label>
+                        EMAIL
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        SELECT PACKAGE
+                    </label>
+
+                    <select
+                        id="package"
+                        required>
+
+                        <option value="">
+                            Select package
+                        </option>
+
+                        <option value="1">Wedding Basic — ₹25,000</option>
+<option value="2">Wedding Gold — ₹50,000</option>
+<option value="3">Wedding Premium — ₹75,000</option>
+<option value="4">Portrait Basic — ₹8,000</option>
+<option value="5">Portrait Premium — ₹15,000</option>
+<option value="6">Birthday Basic — ₹10,000</option>
+<option value="7">Birthday Premium — ₹18,000</option>
+<option value="8">Event Basic — ₹12,000</option>
+<option value="9">Event Premium — ₹20,000</option>
+<option value="10">Fashion Shoot — ₹30,000</option>
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- DATE + TIME -->
+
+            <div class="form-row">
+
+
+                <div class="field">
+
+                    <label>
+                        EVENT DATE
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        required>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>
+                        PREFERRED TIME
+                    </label>
+
+                    <input
+                        type="time"
+                        id="time"
+                        required>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- EVENT -->
+
+            <div class="field">
+
+                <label>
+                    EVENT TYPE
+                </label>
+
+                <select
+                    id="event"
+                    required>
+
+                    <option value="">
+                        Select event type
+                    </option>
+
+                    <option value="Wedding">
+                        Wedding
+                    </option>
+
+                    <option value="Pre-Wedding">
+                        Pre-Wedding
+                    </option>
+
+                    <option value="Engagement">
+                        Engagement
+                    </option>
+
+                    <option value="Birthday">
+                        Birthday
+                    </option>
+
+                    <option value="Portrait">
+                        Portrait
+                    </option>
+
+                    <option value="Fashion">
+                        Fashion
+                    </option>
+
+                    <option value="Baby">
+                        Baby Photography
+                    </option>
+
+                    <option value="Event">
+                        Other Event
+                    </option>
+
+                </select>
+
+		<div class="form-group">
+    <label for="photographer">Select Photographer</label>
+
+    <select id="photographer" required>
+        <option value="">Select Photographer</option>
+        <option value="1">Akash More — Wedding Photography</option>
+        <option value="2">Rohan Shinde — Portrait Photography</option>
+        <option value="3">Priya Kulkarni — Event Photography</option>
+        <option value="4">Sahil Patil — Fashion Photography</option>
+        <option value="5">Neha Joshi — Wedding Photography</option>
+        <option value="6">Aman Deshmukh — Product Photography</option>
+        <option value="7">Snehal Pawar — Portrait Photography</option>
+        <option value="8">Vivek Jadhav — Event Photography</option>
+        <option value="9">Kavita More — Fashion Photography</option>
+        <option value="10">Omkar Shinde — Wedding Photography</option>
+    </select>
+</div>
+
+            </div>
+<div class="form-group">
+    <label for="payment_mode">Payment Mode</label>
+    <select id="payment_mode" required>
+        <option value="">Select Payment Mode</option>
+        <option value="UPI">UPI</option>
+        <option value="Cash">Cash</option>
+        <option value="Card">Card</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+    </select>
+</div>
+
+            <!-- MESSAGE -->
+
+            <div class="field">
+
+                <label>
+                    MESSAGE
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Tell us about your event..."></textarea>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="submit-btn">
+
+                REQUEST BOOKING
+
+            </button>
+
+
+        </form>
+
+
+        <!-- ================= SUCCESS ================= -->
+
+        <div
+            class="success"
+            id="success">
+
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+
+            <h2>
+                Booking Request Sent
+            </h2>
+
+
+            <p>
+
+                Thank you for choosing
+                <strong>Rupanubhuti</strong>.
+
+                <br>
+
+                Your booking request has been received.
+
+                <br>
+
+                Our team will contact you shortly.
+
+            </p>
+
+
+            <a
+                href="home.html"
+                class="home-btn">
+
+                BACK TO HOME
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   GET PACKAGE FROM URL
+===================================================== */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const selectedPackage =
+    params.get("package");
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const packageSelect =
+    document.getElementById("package");
+
+const selectedPackageText =
+    document.getElementById(
+        "selectedPackageText"
+    );
+
+const form =
+    document.getElementById(
+        "bookingForm"
+    );
+
+const success =
+    document.getElementById(
+        "success"
+    );
+
+
+/* =====================================================
+   PACKAGE INFORMATION
+===================================================== */
+
+
+const packagePrices = {
+    "1": "₹25,000",
+    "2": "₹50,000",
+    "3": "₹75,000",
+    "4": "₹8,000",
+    "5": "₹15,000",
+    "6": "₹10,000",
+    "7": "₹18,000",
+    "8": "₹12,000",
+    "9": "₹20,000",
+    "10": "₹30,000"
+   
+};
+
+
+/* =====================================================
+   AUTO SELECT PACKAGE
+===================================================== */
+
+if (selectedPackage) {
+
+    packageSelect.value =
+        selectedPackage;
+
+
+    if (packagePrices[selectedPackage]) {
+
+        selectedPackageText.textContent =
+            selectedPackage +
+            " — " +
+            packagePrices[selectedPackage];
+
+    }
+
+}
+
+
+/* =====================================================
+   CHANGE PACKAGE MANUALLY
+===================================================== */
+
+packageSelect.addEventListener(
+    "change",
+    function() {
+
+        const value =
+            packageSelect.value;
+
+        if (value &&
+            packagePrices[value]) {
+
+            selectedPackageText.textContent =
+                value +
+                " — " +
+                packagePrices[value];
+
+        } else {
+
+            selectedPackageText.textContent =
+                "Please select a package";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   BOOKING FORM
+===================================================== */
+
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const bookingData = {
+    name: document.getElementById("name").value,
+    phone: document.getElementById("phone").value,
+    email: document.getElementById("email").value,
+    package_id: document.getElementById("package").value,
+    date: document.getElementById("date").value,
+    time: document.getElementById("time").value,
+    event: document.getElementById("event").value,
+    photographer_id: document.getElementById("photographer").value,
+    payment_mode: document.getElementById("payment_mode").value,
+    message: document.getElementById("message").value
+};
+    try {
+        const response = await fetch("/api/bookings", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(bookingData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            form.style.display = "none";
+            success.style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+            console.log("Booking ID:", result.booking_id);
+        } else {
+            alert("Booking failed: " + result.message);
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Cannot connect to the backend. Make sure your Node.js server is running.");
+    }
+});
+</script>
+
+
+</body>
+
+</html>

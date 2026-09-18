@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Rupanubhuti | Packages</title>
+
+<style>
+
+/* ================= BASIC ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background: #090909;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+
+/* ================= NAVBAR ================= */
+
+nav {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 24px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 100;
+
+    background:
+        rgba(9,9,9,0.75);
+
+    backdrop-filter:
+        blur(12px);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+}
+
+.back {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.back:hover {
+
+    color: #c9aa7c;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+
+    min-height: 55vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 130px 20px 70px;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.9)
+        ),
+
+        url("packages-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+.hero-content {
+
+    animation:
+        fadeUp 1s ease;
+}
+
+.hero small {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
+
+    color: #c9aa7c;
+}
+
+.hero h1 {
+
+    margin-top: 18px;
+
+    font-size:
+        clamp(55px, 9vw, 100px);
+
+    font-weight: normal;
+
+    letter-spacing: 8px;
+}
+
+.hero p {
+
+    margin-top: 18px;
+
+    font-family: Arial, sans-serif;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+
+/* ================= PACKAGES SECTION ================= */
+
+.packages-section {
+
+    padding: 80px 7% 120px;
+}
+
+.package-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ================= PACKAGE CARD ================= */
+
+.package {
+
+    position: relative;
+
+    padding: 42px 30px;
+
+    min-height: 500px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        linear-gradient(
+            145deg,
+            #181818,
+            #0d0d0d
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    transition:
+        transform 0.5s ease,
+        border 0.5s ease,
+        box-shadow 0.5s ease;
+
+    overflow: hidden;
+}
+
+.package::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(201,170,124,0.08);
+
+    top: -80px;
+    right: -80px;
+
+    transition: 0.6s;
+}
+
+.package:hover {
+
+    transform:
+        translateY(-12px);
+
+    border-color:
+        rgba(201,170,124,0.55);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.6);
+}
+
+.package:hover::before {
+
+    transform:
+        scale(1.5);
+}
+
+
+/* ================= POPULAR ================= */
+
+.popular {
+
+    border-color:
+        #c9aa7c;
+
+    transform:
+        translateY(-12px);
+}
+
+.popular:hover {
+
+    transform:
+        translateY(-20px);
+}
+
+.popular-tag {
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    background:
+        #c9aa7c;
+
+    color: #111;
+
+    padding:
+        8px 20px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+}
+
+
+/* ================= CARD CONTENT ================= */
+
+.package-number {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    color: #777;
+
+    letter-spacing: 3px;
+}
+
+.package h2 {
+
+    margin-top: 18px;
+
+    font-size: 30px;
+
+    font-weight: normal;
+
+    letter-spacing: 2px;
+}
+
+.description {
+
+    margin-top: 12px;
+
+    color: #999;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* ================= PRICE ================= */
+
+.price {
+
+    margin-top: 28px;
+
+    font-size: 36px;
+
+    color: #c9aa7c;
+}
+
+.price span {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    color: #777;
+}
+
+
+/* ================= FEATURES ================= */
+
+.features {
+
+    list-style: none;
+
+    margin-top: 30px;
+
+    flex: 1;
+}
+
+.features li {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    color: #ccc;
+
+    padding: 9px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.07);
+}
+
+.features li::before {
+
+    content: "✦";
+
+    color: #c9aa7c;
+
+    margin-right: 10px;
+}
+
+
+/* ================= BUTTON ================= */
+
+.package-btn {
+
+    display: block;
+
+    text-align: center;
+
+    margin-top: 30px;
+
+    padding: 14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    transition: 0.4s;
+}
+
+.package-btn:hover {
+
+    background:
+        #c9aa7c;
+
+    color:
+        #111;
+
+    border-color:
+        #c9aa7c;
+}
+
+
+/* ================= CUSTOM PACKAGE ================= */
+
+.custom {
+
+    max-width: 1200px;
+
+    margin: 35px auto 0;
+
+    padding: 35px;
+
+    text-align: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
+
+    background:
+        #111;
+}
+
+.custom h2 {
+
+    font-size: 28px;
+
+    font-weight: normal;
+}
+
+.custom p {
+
+    margin: 12px 0 22px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    color: #999;
+}
+
+.custom a {
+
+    display: inline-block;
+
+    padding: 13px 28px;
+
+    border:
+        1px solid
+        #c9aa7c;
+
+    color:
+        #c9aa7c;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.custom a:hover {
+
+    background:
+        #c9aa7c;
+
+    color:
+        #111;
+}
+
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 850px) {
+
+    .package-grid {
+
+        grid-template-columns:
+            1fr;
+
+        max-width: 500px;
+    }
+
+    .popular {
+
+        transform: none;
+    }
+
+    .popular:hover {
+
+        transform:
+            translateY(-12px);
+    }
+
+    .hero {
+
+        min-height: 50vh;
+    }
+
+    .packages-section {
+
+        padding-left: 20px;
+
+        padding-right: 20px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <div class="logo">
+        RUPANUBHUTI
+    </div>
+
+    <a href="home.html"
+       class="back">
+
+        ← BACK TO HOME
+
+    </a>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <small>
+            RUPANUBHUTI PHOTOGRAPHY STUDIO
+        </small>
+
+        <h1>
+            PACKAGES
+        </h1>
+
+        <p>
+            Choose the perfect way to preserve your moments.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PACKAGES ================= -->
+
+<section class="packages-section">
+
+
+    <div class="package-grid">
+
+
+        <!-- ================= CLASSIC ================= -->
+
+        <div class="package">
+
+            <div class="package-number">
+                01 — ESSENTIAL
+            </div>
+
+            <h2>
+                Classic
+            </h2>
+
+            <p class="description">
+
+                Perfect for intimate events,
+                portraits and special moments.
+
+            </p>
+
+            <div class="price">
+
+                ₹7,999
+
+                <span>
+                    / SESSION
+                </span>
+
+            </div>
+
+
+            <ul class="features">
+
+                <li>
+                    2 Hours Photography
+                </li>
+
+                <li>
+                    1 Professional Photographer
+                </li>
+
+                <li>
+                    100+ Edited Photos
+                </li>
+
+                <li>
+                    Online Gallery
+                </li>
+
+                <li>
+                    High Resolution Images
+                </li>
+
+            </ul>
+
+
+            <!-- IMPORTANT -->
+
+            <a href="bookings.html?package=Classic"
+               class="package-btn">
+
+                BOOK THIS PACKAGE
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ================= SIGNATURE ================= -->
+
+        <div class="package popular">
+
+            <div class="popular-tag">
+                MOST POPULAR
+            </div>
+
+            <div class="package-number">
+                02 — SIGNATURE
+            </div>
+
+            <h2>
+                Signature
+            </h2>
+
+            <p class="description">
+
+                Our complete photography experience
+                for unforgettable celebrations.
+
+            </p>
+
+            <div class="price">
+
+                ₹19,999
+
+                <span>
+                    / EVENT
+                </span>
+
+            </div>
+
+
+            <ul class="features">
+
+                <li>
+                    5 Hours Photography
+                </li>
+
+                <li>
+                    2 Professional Photographers
+                </li>
+
+                <li>
+                    300+ Edited Photos
+                </li>
+
+                <li>
+                    Cinematic Highlight Video
+                </li>
+
+                <li>
+                    Premium Online Gallery
+                </li>
+
+                <li>
+                    Photo Album
+                </li>
+
+            </ul>
+
+
+            <!-- IMPORTANT -->
+
+            <a href="bookings.html?package=Signature"
+               class="package-btn">
+
+                BOOK THIS PACKAGE
+
+            </a>
+
+        </div>
+
+
+
+        <!-- ================= ROYAL ================= -->
+
+        <div class="package">
+
+            <div class="package-number">
+                03 — LUXURY
+            </div>
+
+            <h2>
+                Royal
+            </h2>
+
+            <p class="description">
+
+                The ultimate experience for weddings
+                and grand celebrations.
+
+            </p>
+
+            <div class="price">
+
+                ₹39,999
+
+                <span>
+                    / EVENT
+                </span>
+
+            </div>
+
+
+            <ul class="features">
+
+                <li>
+                    Full Day Coverage
+                </li>
+
+                <li>
+                    2 Photographers
+                </li>
+
+                <li>
+                    2 Cinematographers
+                </li>
+
+                <li>
+                    600+ Edited Photos
+                </li>
+
+                <li>
+                    Cinematic Wedding Film
+                </li>
+
+                <li>
+                    Premium Wedding Album
+                </li>
+
+                <li>
+                    Drone Photography
+                </li>
+
+            </ul>
+
+
+            <!-- IMPORTANT -->
+
+            <a href="bookings.html?package=Royal"
+               class="package-btn">
+
+                BOOK THIS PACKAGE
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- ================= CUSTOM PACKAGE ================= -->
+
+    <div class="custom">
+
+        <h2>
+            Need Something Different?
+        </h2>
+
+        <p>
+
+            Tell us what you need and we'll create
+            a photography package specially for you.
+
+        </p>
+
+        <a href="contact.html">
+
+            TALK TO US
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+</body>
+
+</html>

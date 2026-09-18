@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Rupanubhuti | Customers</title>
+
+
+<style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    background: #090909;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+nav {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 25px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 1000;
+
+    background:
+        rgba(9,9,9,0.72);
+
+    backdrop-filter:
+        blur(15px);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
+}
+
+
+.logo {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+}
+
+
+.back {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+
+.back:hover {
+
+    color: #c9aa7c;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    min-height: 70vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 120px 20px 70px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,0.48),
+            rgba(0,0,0,0.92)
+        ),
+
+        url("customers-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(201,170,124,0.18);
+
+    animation:
+        rotateCircle 20s linear infinite;
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        fadeUp 1.2s ease;
+}
+
+
+.hero small {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
+
+    color: #c9aa7c;
+}
+
+
+.hero h1 {
+
+    margin-top: 20px;
+
+    font-size:
+        clamp(55px, 10vw, 115px);
+
+    font-weight: normal;
+
+    letter-spacing: 10px;
+}
+
+
+.hero p {
+
+    max-width: 550px;
+
+    margin: 20px auto 0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    color: #aaa;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+
+    text-align: center;
+
+    padding: 90px 20px 55px;
+}
+
+
+.section-title small {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: #c9aa7c;
+}
+
+
+.section-title h2 {
+
+    margin-top: 15px;
+
+    font-size: 45px;
+
+    font-weight: normal;
+
+    letter-spacing: 3px;
+}
+
+
+.section-title p {
+
+    margin-top: 12px;
+
+    font-family: Arial, sans-serif;
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   CUSTOMER GALLERY
+===================================================== */
+
+.customer-gallery {
+
+    width: 86%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+
+.customer-card {
+
+    position: relative;
+
+    height: 390px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    animation:
+        cardAppear 1s ease backwards;
+}
+
+
+.customer-card:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.customer-card:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.customer-card:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.customer-card:nth-child(4) {
+    animation-delay: .4s;
+}
+
+
+.customer-card img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform .8s ease,
+        filter .8s ease;
+}
+
+
+.customer-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 45%,
+            rgba(0,0,0,.9)
+        );
+
+    opacity: .8;
+}
+
+
+.customer-card:hover img {
+
+    transform:
+        scale(1.1);
+
+    filter:
+        brightness(.7);
+}
+
+
+.customer-info {
+
+    position: absolute;
+
+    left: 22px;
+
+    bottom: 20px;
+
+    z-index: 3;
+}
+
+
+.customer-info h3 {
+
+    font-size: 22px;
+
+    font-weight: normal;
+}
+
+
+.customer-info span {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #c9aa7c;
+}
+
+
+/* =====================================================
+   TESTIMONIALS
+===================================================== */
+
+.testimonials {
+
+    width: 86%;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    padding-bottom: 100px;
+}
+
+
+.testimonial {
+
+    position: relative;
+
+    padding: 38px 30px;
+
+    min-height: 280px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #181818,
+            #0d0d0d
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    transition:
+        .5s ease;
+}
+
+
+.testimonial:hover {
+
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(201,170,124,.5);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.55);
+}
+
+
+.quote {
+
+    font-size: 50px;
+
+    line-height: .5;
+
+    color: #c9aa7c;
+}
+
+
+.stars {
+
+    margin-top: 22px;
+
+    color: #c9aa7c;
+
+    font-family: Arial, sans-serif;
+
+    letter-spacing: 3px;
+}
+
+
+.testimonial p {
+
+    margin-top: 20px;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    color: #ccc;
+}
+
+
+.customer-name {
+
+    margin-top: 25px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #888;
+}
+
+
+/* =====================================================
+   STATISTICS
+===================================================== */
+
+.stats {
+
+    padding: 80px 7%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    text-align: center;
+
+    background: #0d0d0d;
+}
+
+
+.stat h2 {
+
+    font-size: 42px;
+
+    font-weight: normal;
+
+    color: #c9aa7c;
+}
+
+
+.stat p {
+
+    margin-top: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #777;
+}
+
+
+/* =====================================================
+   SHARE EXPERIENCE
+===================================================== */
+
+.share {
+
+    padding: 110px 20px;
+
+    text-align: center;
+}
+
+
+.share small {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: #c9aa7c;
+}
+
+
+.share h2 {
+
+    margin-top: 15px;
+
+    font-size: 48px;
+
+    font-weight: normal;
+}
+
+
+.share p {
+
+    max-width: 500px;
+
+    margin: 15px auto 30px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+    color: #888;
+}
+
+
+.share-btn {
+
+    display: inline-block;
+
+    padding: 15px 30px;
+
+    border:
+        1px solid
+        #c9aa7c;
+
+    color:
+        #c9aa7c;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    transition: .4s;
+}
+
+
+.share-btn:hover {
+
+    background:
+        #c9aa7c;
+
+    color:
+        #111;
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    padding: 35px 7%;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color: #666;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(50px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes cardAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes rotateCircle {
+
+    from {
+
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width: 900px) {
+
+    .customer-gallery {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .testimonials {
+
+        grid-template-columns:
+            1fr;
+    }
+
+    .stats {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap: 45px;
+    }
+}
+
+
+@media(max-width: 600px) {
+
+    nav {
+
+        padding: 20px;
+    }
+
+    .logo {
+
+        font-size: 17px;
+
+        letter-spacing: 3px;
+    }
+
+    .hero {
+
+        min-height: 60vh;
+    }
+
+    .hero h1 {
+
+        font-size: 48px;
+
+        letter-spacing: 5px;
+    }
+
+    .customer-gallery {
+
+        width: 92%;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 10px;
+    }
+
+    .customer-card {
+
+        height: 280px;
+    }
+
+    .section-title h2 {
+
+        font-size: 35px;
+    }
+
+    .share h2 {
+
+        font-size: 36px;
+    }
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        text-align: center;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<nav>
+
+    <div class="logo">
+        RUPANUBHUTI
+    </div>
+
+    <a
+        href="home.html"
+        class="back">
+
+        ← BACK TO HOME
+
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <small>
+            STORIES BEHIND THE LENS
+        </small>
+
+        <h1>
+            CUSTOMERS
+        </h1>
+
+        <p>
+
+            Every photograph tells a story.
+            Every customer becomes a part
+            of the Rupanubhuti journey.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CUSTOMER STORIES
+===================================================== -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>
+            OUR BEAUTIFUL PEOPLE
+        </small>
+
+        <h2>
+            Stories We've Captured
+        </h2>
+
+        <p>
+            Moments shared with the people who trusted us.
+        </p>
+
+    </div>
+
+
+    <div class="customer-gallery">
+
+
+        <!-- CUSTOMER 1 -->
+
+        <div class="customer-card">
+
+            <img
+                src="C:\Users\shiva\Downloads\1014576622303191278.jpg"
+                alt="Wedding couple">
+
+            <div class="customer-info">
+
+                <h3>
+                    Aarav & Anaya
+                </h3>
+
+                <span>
+                    WEDDING STORY
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CUSTOMER 2 -->
+
+        <div class="customer-card">
+
+            <img
+                src="C:\Users\shiva\Downloads\couple pose.jpg"
+                alt="Couple">
+
+            <div class="customer-info">
+
+                <h3>
+                    Riya & Aditya
+                </h3>
+
+                <span>
+                    PRE-WEDDING
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CUSTOMER 3 -->
+
+        <div class="customer-card">
+
+            <img
+                src="C:\Users\shiva\Downloads\Natural Bridal Portrait Ideas for Authentic Wedding Photos.jpg"
+                alt="Portrait">
+
+            <div class="customer-info">
+
+                <h3>
+                    Meera
+                </h3>
+
+                <span>
+                    PORTRAIT SESSION
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CUSTOMER 4 -->
+
+        <div class="customer-card">
+
+            <img
+                src="C:\Users\shiva\Downloads\Olive and Grace Photography _ Delaware Family Photographer.jpg"
+                alt="Family">
+
+            <div class="customer-info">
+
+                <h3>
+                    The Sharma Family
+                </h3>
+
+                <span>
+                    FAMILY SESSION
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATISTICS
+===================================================== -->
+
+<section class="stats">
+
+
+    <div class="stat">
+
+        <h2>
+            250+
+        </h2>
+
+        <p>
+            HAPPY CUSTOMERS
+        </p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>
+            180+
+        </h2>
+
+        <p>
+            EVENTS CAPTURED
+        </p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>
+            500K+
+        </h2>
+
+        <p>
+            MOMENTS CAPTURED
+        </p>
+
+    </div>
+
+
+    <div class="stat">
+
+        <h2>
+            5.0
+        </h2>
+
+        <p>
+            CUSTOMER RATING
+        </p>
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     TESTIMONIALS
+===================================================== -->
+
+<section>
+
+    <div class="section-title">
+
+        <small>
+            KIND WORDS
+        </small>
+
+        <h2>
+            What Our Customers Say
+        </h2>
+
+        <p>
+            Real emotions from unforgettable moments.
+        </p>
+
+    </div>
+
+
+    <div class="testimonials">
+
+
+        <!-- REVIEW 1 -->
+
+        <div class="testimonial">
+
+            <div class="quote">
+                “
+            </div>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+
+                Rupanubhuti made our wedding
+                memories feel even more magical.
+                Every photograph tells a story.
+
+            </p>
+
+            <div class="customer-name">
+                — AARAV & ANAYA
+            </div>
+
+        </div>
+
+
+        <!-- REVIEW 2 -->
+
+        <div class="testimonial">
+
+            <div class="quote">
+                “
+            </div>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+
+                The team was so comfortable
+                to work with. The photographs
+                turned out absolutely beautiful.
+
+            </p>
+
+            <div class="customer-name">
+                — RIYA & ADITYA
+            </div>
+
+        </div>
+
+
+        <!-- REVIEW 3 -->
+
+        <div class="testimonial">
+
+            <div class="quote">
+                “
+            </div>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+
+                From the first conversation
+                to the final photographs,
+                everything felt incredibly special.
+
+            </p>
+
+            <div class="customer-name">
+                — MEERA SHARMA
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SHARE EXPERIENCE
+===================================================== -->
+
+<section class="share">
+
+    <small>
+        YOUR STORY MATTERS
+    </small>
+
+    <h2>
+        Had a Rupanubhuti Experience?
+    </h2>
+
+    <p>
+
+        We'd love to hear about your experience
+        and see the moments we captured together.
+
+    </p>
+
+    <a
+        href="contact.html"
+        class="share-btn">
+
+        SHARE YOUR EXPERIENCE
+
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div>
+        RUPANUBHUTI © 2026
+    </div>
+
+    <div>
+        MOMENTS • EMOTIONS • MEMORIES
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

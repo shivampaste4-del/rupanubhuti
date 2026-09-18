@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rupanubhuti | Contact</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090909;
+            color: white;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 25px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(0, 0, 0, 0.78);
+
+            backdrop-filter: blur(10px);
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 23px;
+
+            letter-spacing: 5px;
+
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #c9aa7c;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .contact-header {
+            height: 55vh;
+
+            min-height: 450px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.45),
+                    rgba(0,0,0,0.82)
+                ),
+                url("contact-bg.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding-top: 70px;
+        }
+
+        .header-content {
+            animation: appear 1.5s ease;
+        }
+
+        .small-title {
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 6px;
+
+            color: #c9aa7c;
+
+            margin-bottom: 25px;
+        }
+
+        .contact-header h1 {
+            font-size: clamp(55px, 9vw, 100px);
+
+            font-weight: normal;
+
+            letter-spacing: 10px;
+        }
+
+        .contact-header p {
+            margin-top: 20px;
+
+            font-family: Arial, sans-serif;
+
+            color: #aaa;
+
+            letter-spacing: 3px;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= CONTACT AREA ================= */
+
+        .contact-area {
+            padding: 100px 8%;
+
+            background: #0b0b0b;
+        }
+
+        .contact-container {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1.4fr;
+
+            gap: 70px;
+
+            align-items: start;
+        }
+
+
+        /* ================= INFO ================= */
+
+        .contact-info {
+            padding-top: 10px;
+        }
+
+        .section-label {
+            color: #c9aa7c;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 20px;
+        }
+
+        .contact-info h2 {
+            font-size: 43px;
+
+            font-weight: normal;
+
+            line-height: 1.2;
+
+            margin-bottom: 25px;
+        }
+
+        .contact-info > p {
+            color: #888;
+
+            font-family: Arial, sans-serif;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* INFO ITEMS */
+
+        .info-item {
+            margin-bottom: 28px;
+        }
+
+        .info-item span {
+            display: block;
+
+            color: #c9aa7c;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 8px;
+        }
+
+        .info-item p {
+            color: #ddd;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+        }
+
+        .info-item a {
+            color: white;
+
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            color: #c9aa7c;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .booking-form {
+            padding: 45px;
+
+            border: 1px solid #292929;
+
+            background: #101010;
+        }
+
+        .booking-form h3 {
+            font-size: 28px;
+
+            font-weight: normal;
+
+            margin-bottom: 30px;
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            color: #999;
+
+            margin-bottom: 9px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #080808;
+
+            border: 1px solid #333;
+
+            color: white;
+
+            outline: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color: #c9aa7c;
+        }
+
+        .form-group textarea {
+
+            height: 130px;
+
+            resize: vertical;
+        }
+
+        .form-group select option {
+            background: #111;
+        }
+
+
+        /* ================= SUBMIT ================= */
+
+        .submit-btn {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: 1px solid white;
+
+            background: white;
+
+            color: black;
+
+            cursor: pointer;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            transition: 0.4s;
+        }
+
+        .submit-btn:hover {
+
+            background: transparent;
+
+            color: white;
+        }
+
+
+        /* ================= SUCCESS MESSAGE ================= */
+
+        #message {
+
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 13px;
+
+            border: 1px solid #444;
+
+            text-align: center;
+
+            color: #c9aa7c;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+        }
+
+
+        /* ================= QUOTE ================= */
+
+        .quote {
+
+            padding: 100px 10%;
+
+            background: #111;
+
+            text-align: center;
+        }
+
+        .quote h2 {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            font-size: clamp(32px, 5vw, 55px);
+
+            font-weight: normal;
+
+            font-style: italic;
+
+            line-height: 1.35;
+
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            padding: 35px;
+
+            text-align: center;
+
+            border-top: 1px solid #222;
+
+            background: #060606;
+
+        }
+
+        footer h3 {
+
+            letter-spacing: 5px;
+
+            margin-bottom: 10px;
+
+        }
+
+        footer p {
+
+            color: #666;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+        }
+
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(40px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+
+            }
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 18px;
+
+            }
+
+            .logo {
+
+                font-size: 19px;
+
+            }
+
+            .nav-links {
+
+                gap: 15px;
+
+            }
+
+            .nav-links a {
+
+                font-size: 9px;
+
+            }
+
+            .contact-container {
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+            }
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .booking-form {
+
+                padding: 30px 20px;
+
+            }
+
+            .contact-info h2 {
+
+                font-size: 35px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <div class="logo">
+            RUPANUBHUTI
+        </div>
+
+        <div class="nav-links">
+
+            <a href="gallery.html">
+                GALLERY
+            </a>
+
+            <a href="services.html">
+                SERVICES
+            </a>
+
+            <a href="contact.html">
+                CONTACT
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <section class="contact-header">
+
+        <div class="header-content">
+
+            <div class="small-title">
+                RUPANUBHUTI PHOTOGRAPHY STUDIO
+            </div>
+
+            <h1>
+                CONTACT
+            </h1>
+
+            <p>
+                LET'S CREATE SOMETHING BEAUTIFUL TOGETHER
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT AREA ================= -->
+
+    <section class="contact-area">
+
+        <div class="contact-container">
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="contact-info">
+
+                <div class="section-label">
+                    GET IN TOUCH
+                </div>
+
+                <h2>
+                    Let's Capture
+                    Your Story.
+                </h2>
+
+                <p>
+                    Have a wedding, event, portrait session
+                    or special project in mind?
+                    Tell us about it and let's create
+                    something unforgettable.
+                </p>
+
+
+                <div class="info-item">
+
+                    <span>
+                        EMAIL
+                    </span>
+
+                    <p>
+                        le0das98789@gmail.com
+                            
+                        
+                    </p>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        PHONE
+                    </span>
+
+                    <p>
+                        <a href="tel:7262007552">
+                            7262007552
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        STUDIO
+                    </span>
+
+                    <p>
+                        Pune, Maharashtra, India
+                    </p>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        WORKING HOURS
+                    </span>
+
+                    <p>
+                        Monday – Saturday<br>
+                        10:00 AM – 7:00 PM
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOOKING FORM -->
+
+            <div class="booking-form">
+
+                <h3>
+                    Book A Session
+                </h3>
+
+
+                <form id="bookingForm">
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+                                YOUR NAME
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                PHONE
+                            </label>
+
+                            <input
+                                type="tel"
+                                placeholder="Enter phone number"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            EMAIL
+                        </label>
+
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+                                SERVICE
+                            </label>
+
+                            <select required>
+
+                                <option value="">
+                                    Select service
+                                </option>
+
+                                <option>
+                                    Wedding Photography
+                                </option>
+
+                                <option>
+                                    Portrait Photography
+                                </option>
+
+                                <option>
+                                    Event Photography
+                                </option>
+
+                                <option>
+                                    Fashion Photography
+                                </option>
+
+                                <option>
+                                    Product Photography
+                                </option>
+
+                                <option>
+                                    Cinematic Films
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                EVENT DATE
+                            </label>
+
+                            <input
+                                type="date"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            TELL US ABOUT YOUR EVENT
+                        </label>
+
+                        <textarea
+                            placeholder="Tell us about your event or photography requirements..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn"
+                    >
+                        SEND ENQUIRY
+                    </button>
+
+
+                    <div id="message">
+                        Thank you! Your enquiry has been received.
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUOTE ================= -->
+
+    <section class="quote">
+
+        <h2>
+            "Your memories deserve
+            more than a photograph."
+        </h2>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>
+            RUPANUBHUTI
+        </h3>
+
+        <p>
+            © 2026 Rupanubhuti Photography Studio.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            document
+            .getElementById("message")
+            .style.display = "block";
+
+            this.reset();
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

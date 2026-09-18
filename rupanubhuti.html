@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Photoshopee | Capture The Moment</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 80px;
+            padding: 0 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(13, 13, 13, 0.9);
+            border-bottom: 1px solid #222;
+
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .nav-btn {
+            padding: 12px 22px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 80px 8%;
+
+            background:
+                radial-gradient(circle at 80% 50%, #292929, transparent 35%),
+                #0d0d0d;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .small-title {
+            letter-spacing: 3px;
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(55px, 7vw, 100px);
+            line-height: 0.95;
+            margin-bottom: 30px;
+        }
+
+        h1 span,
+        h2 span {
+            color: #aaa;
+        }
+
+        .description {
+            color: #aaa;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 550px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .main-btn,
+        .outline-btn {
+            padding: 15px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .main-btn {
+            background: white;
+            color: black;
+        }
+
+        .outline-btn {
+            border: 1px solid #555;
+            color: white;
+        }
+
+        .main-btn:hover,
+        .outline-btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .camera-card {
+            width: 220px;
+            height: 260px;
+
+            border-radius: 25px;
+
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(15px);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .camera-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .camera-card p {
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+
+        @keyframes float {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* ================= SHOWCASE ================= */
+
+        .showcase {
+            padding: 100px 0 120px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .section-heading p {
+            color: #888;
+            letter-spacing: 4px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(40px, 5vw, 65px);
+            margin-bottom: 80px;
+        }
+
+        /* ================= HORIZONTAL CIRCULAR GALLERY ================= */
+
+        .gallery {
+            width: 100%;
+            height: 420px;
+
+            position: relative;
+
+            perspective: 1200px;
+        }
+
+        .gallery::before {
+            content: "";
+
+            position: absolute;
+
+            width: 1100px;
+            height: 300px;
+
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%)
+                rotateX(65deg);
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            border-radius: 50%;
+        }
+
+        .photo {
+            position: absolute;
+
+            width: 210px;
+            height: 280px;
+
+            left: 50%;
+            top: 50%;
+
+            margin-left: -105px;
+            margin-top: -140px;
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            border: 4px solid white;
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.5);
+
+            transition:
+                transform 0.8s ease,
+                opacity 0.8s ease;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ================= SERVICES ================= */
+
+        .services {
+            padding: 100px 8%;
+            text-align: center;
+            background: #111;
+        }
+
+        .services h2 {
+            font-size: 55px;
+            margin: 20px 0 60px;
+        }
+
+        .service-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            width: 280px;
+            padding: 35px;
+
+            background: #1a1a1a;
+            border-radius: 20px;
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card div {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: #080808;
+        }
+
+        footer p {
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            margin-top: 25px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width:700px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+            }
+
+            .description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .gallery {
+                height: 330px;
+            }
+
+            .photo {
+                width: 150px;
+                height: 210px;
+
+                margin-left: -75px;
+                margin-top: -105px;
+            }
+
+            .gallery::before {
+                width: 650px;
+                height: 220px;
+            }
+        }
+
+/* ===== LOGO IMAGE ANIMATION ===== */
+
+.logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+
+    display: block;
+
+    /* Smooth animation */
+    animation: logoRotate 4s ease-in-out infinite;
+
+    transition: 0.4s ease;
+
+    /* Glow */
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.4));
+}
+
+
+/* Rotating animation */
+
+@keyframes logoRotate {
+
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(-8deg) scale(1.05);
+    }
+
+    50% {
+        transform: rotate(8deg) scale(1.1);
+    }
+
+    75% {
+        transform: rotate(-5deg) scale(1.05);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+}
+
+
+/* Shine + glow */
+
+.logo img {
+    animation:
+        logoRotate 4s ease-in-out infinite,
+        logoGlow 2.5s ease-in-out infinite;
+}
+
+
+@keyframes logoGlow {
+
+    0%, 100% {
+        filter: drop-shadow(0 0 3px rgba(255,255,255,0.3));
+    }
+
+    50% {
+        filter:
+            drop-shadow(0 0 8px rgba(255,255,255,0.8))
+            brightness(1.2);
+    }
+
+}
+
+
+/* Hover */
+
+.logo img:hover {
+    transform: scale(1.25) rotate(15deg);
+    filter:
+        drop-shadow(0 0 15px white)
+        brightness(1.3);
+}
+
+.camera-icon {
+    width: 200px;
+    height: 190px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.camera-icon img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+
+    animation: logoFloat 3s ease-in-out infinite;
+}
+/* ===== CIRCULAR LOGO ===== */
+
+.camera-icon {
+    width: 180px;
+    height: 180px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 15px;
+}
+
+
+
+/* Spin → slow down → stop → spin again */
+
+@keyframes logoSpin {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    35% {
+        transform: rotate(360deg);
+    }
+
+    55% {
+        transform: rotate(360deg);
+    }
+
+    75% {
+        transform: rotate(720deg);
+    }
+
+    100% {
+        transform: rotate(720deg);
+    }
+
+}
+.camera-card {
+    width: 220px;
+    height: 260px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    transform: translateX(20px);
+
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(15px);
+
+    border-radius: 25px;
+
+    animation: float 4s ease-in-out infinite;
+}
+.camera-icon img {
+    width: 160px;
+    height: 160px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 4px solid white;
+
+    animation: logoSpin 5s ease-in-out infinite;
+
+    box-shadow: 0 0 25px rgba(255,255,255,0.35);
+}
+
+.logo-name span {
+    display: inline-block;
+    animation: flashName 2.5s infinite;
+}
+
+.logo-name span:nth-child(1)  { animation-delay: 0s; }
+.logo-name span:nth-child(2)  { animation-delay: 0.1s; }
+.logo-name span:nth-child(3)  { animation-delay: 0.2s; }
+.logo-name span:nth-child(4)  { animation-delay: 0.3s; }
+.logo-name span:nth-child(5)  { animation-delay: 0.4s; }
+.logo-name span:nth-child(6)  { animation-delay: 0.5s; }
+.logo-name span:nth-child(7)  { animation-delay: 0.6s; }
+.logo-name span:nth-child(8)  { animation-delay: 0.7s; }
+.logo-name span:nth-child(9)  { animation-delay: 0.8s; }
+.logo-name span:nth-child(10) { animation-delay: 0.9s; }
+.logo-name span:nth-child(11) { animation-delay: 1s; }
+
+@keyframes flashName {
+
+    0%, 100% {
+        opacity: 0.4;
+    }
+
+    20% {
+        opacity: 1;
+        text-shadow: 0 0 12px white;
+    }
+
+    40% {
+        opacity: 0.4;
+    }
+
+}
+.logo-name {
+    display: inline-block;
+    padding: 7px 22px;
+    border: 2px solid white;
+    border-radius: 50px;
+
+    font-size: 22px;
+    font-weight: bold;
+}
+.logo-name > span {
+    display: inline-block;
+    animation: flashName 2.5s infinite;
+}
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 80px 8%;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("images/chlsflp0211.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+    </style>
+</head>
+
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+    
+    <span class="logo-name">
+        <span>रू</span><span>पा</span><span>नु</span><span>भू</span><span>ति</span>
+    </span>
+</div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="customers.html">Customers</a>
+            
+        </nav>
+
+       
+
+    </header>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                ✦ PROFESSIONAL PHOTOGRAPHY STUDIO ✦
+            </p>
+
+            <h1>
+                We Capture
+                <span>Your Story.</span>
+            </h1>
+
+            <p class="description">
+                From unforgettable weddings to beautiful portraits,
+                we turn your special moments into memories that last forever.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="bookings.html" class="main-btn">
+                    Book Your Shoot →
+                </a>
+
+                <a href="packages.html" class="outline-btn">
+                    Explore Packages
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="camera-card">
+
+            <div class="camera-icon">
+               <img src="images/dedff.png">
+
+            </div>
+
+            <p>Creating Memories</p>
+
+            <strong>Since 2026</strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- PHOTO SHOWCASE -->
+
+    <section class="showcase">
+
+        <div class="section-heading">
+
+            <p>OUR WORK</p>
+
+            <h2>
+                Moments Worth
+                <span>Remembering.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="gallery">
+
+            <div class="photo">
+                <img src="images/1st Birthday Photography.jpg">
+            </div>
+	
+
+            <div class="photo">
+                <img src="images/Dreamy Pre Wedding Shoot Ideas For Couples.jpg" alt="pre-wedding photography">
+            </div>
+
+            <div class="photo">
+                <img src="images/Explore the thrill of an African safari….jpg">
+            </div>
+
+            <div class="photo">
+                <img src="images/and in that moment, we were infinite….jpg">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="services">
+
+        <p class="small-title">
+            WHAT WE DO
+        </p>
+
+        <h2>
+            Photography For
+            <span>Every Moment.</span>
+        </h2>
+
+        <div class="service-container">
+
+            <div class="service-card">
+
+                <div>💍</div>
+
+                <h3>Wedding</h3>
+
+                <p>
+                    Every smile, emotion and beautiful moment.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div>🎂</div>
+
+                <h3>Events</h3>
+
+                <p>
+                    Making your celebrations unforgettable.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div>✨</div>
+
+                <h3>Portraits</h3>
+
+                <p>
+                    Your personality, captured beautifully.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h2>
+           
+        </h2>
+
+        <p>
+            Capture the moment. Preserve the memory.
+        </p>
+
+        <p class="copyright">
+            © 2026 Photoshopee Management System
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        const photos = document.querySelectorAll(".photo");
+
+        let angle = 0;
+
+        function animateGallery() {
+
+            angle += 0.012;
+
+            photos.forEach((photo, index) => {
+
+                const startAngle =
+                    angle + (index * Math.PI * 2 / 4);
+
+                /*
+                    Wide horizontal elliptical path
+                */
+
+                const x = Math.sin(startAngle) * 480;
+
+                const y = Math.cos(startAngle) * 55;
+
+                /*
+                    Depth effect
+                */
+
+                const depth =
+                    (Math.cos(startAngle) + 1) / 2;
+
+                const scale =
+                    0.65 + (depth * 0.45);
+
+                const opacity =
+                    0.45 + (depth * 0.55);
+
+                const rotate =
+                    Math.sin(startAngle) * -12;
+
+                photo.style.transform =
+                    `translate(${x}px, ${y}px)
+                     translateZ(${depth * 150}px)
+                     scale(${scale})
+                     rotateY(${rotate}deg)`;
+
+                photo.style.opacity = opacity;
+
+                photo.style.zIndex =
+                    Math.round(depth * 100);
+
+            });
+
+            requestAnimationFrame(animateGallery);
+
+        }
+
+        animateGallery();
+
+    </script>
+
+</body>
+
+</html>

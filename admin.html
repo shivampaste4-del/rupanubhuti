@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rupanubhuti | Admin Dashboard</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at 15% 10%, rgba(212,175,55,0.10), transparent 30%),
+                radial-gradient(circle at 85% 80%, rgba(212,175,55,0.07), transparent 30%),
+                #090909;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* ---------- HEADER ---------- */
+
+        header {
+            height: 80px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(12,12,12,0.82);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(212,175,55,0.18);
+
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        .admin-badge {
+            padding: 9px 18px;
+            border: 1px solid rgba(212,175,55,0.4);
+            border-radius: 30px;
+            color: #d4af37;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ---------- MAIN ---------- */
+
+        .container {
+            width: 88%;
+            max-width: 1300px;
+            margin: auto;
+            padding: 55px 0 70px;
+        }
+
+        .hero {
+            margin-bottom: 45px;
+        }
+
+        .small-title {
+            color: #d4af37;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .hero h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(45px, 6vw, 72px);
+            font-weight: 600;
+            line-height: 0.95;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: #999;
+            font-size: 15px;
+        }
+
+        /* ---------- CARDS ---------- */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+
+            min-height: 175px;
+            padding: 28px;
+
+            background:
+                linear-gradient(145deg,
+                    rgba(255,255,255,0.065),
+                    rgba(255,255,255,0.018));
+
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+
+            backdrop-filter: blur(15px);
+
+            transition: transform 0.35s ease,
+                        border-color 0.35s ease,
+                        box-shadow 0.35s ease;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            right: -50px;
+            top: -50px;
+
+            background: #d4af37;
+            opacity: 0.06;
+
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+
+            border-color: rgba(212,175,55,0.45);
+
+            box-shadow:
+                0 15px 45px rgba(0,0,0,0.45),
+                0 0 25px rgba(212,175,55,0.06);
+        }
+
+        .card h3 {
+            color: #8f8f8f;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .card p {
+            font-size: 42px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        .amount {
+            color: #d4af37;
+        }
+
+        /* ---------- SPECIAL CARDS ---------- */
+
+        .card:nth-child(1) p,
+        .card:nth-child(2) p {
+            color: #fff;
+        }
+
+        .card:nth-child(4) p {
+            color: #8fd694;
+        }
+
+        .card:nth-child(5) p,
+        .card:nth-child(6) p {
+            color: #e5b96b;
+        }
+
+        /* ---------- FOOTER ---------- */
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #555;
+            font-size: 12px;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        /* ---------- MOBILE ---------- */
+
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+	.admin-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                height: 70px;
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 26px;
+            }
+
+            .admin-badge {
+                padding: 7px 12px;
+                font-size: 10px;
+            }
+
+            .container {
+                width: 90%;
+                padding: 40px 0 55px;
+            }
+
+            .hero {
+                margin-bottom: 35px;
+            }
+
+            .hero h2 {
+                font-size: 48px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .card {
+                min-height: 150px;
+            }
+
+            .card p {
+                font-size: 36px;
+            }
+        }
+/* ---------- MANAGEMENT SECTION ---------- */
+
+.management-section {
+    margin-top: 55px;
+}
+
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-heading span {
+    color: #d4af37;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+
+    backdrop-filter: blur(15px);
+}
+
+table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: rgba(212,175,55,0.08);
+}
+
+th {
+    color: #d4af37;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 18px 16px;
+    text-align: left;
+}
+
+td {
+    padding: 17px 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: #bbb;
+    font-size: 13px;
+}
+
+tbody tr {
+    transition: background 0.25s ease;
+}
+
+tbody tr:hover {
+    background: rgba(212,175,55,0.045);
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.status.confirmed {
+    color: #8fd694;
+    background: rgba(143,214,148,0.08);
+}
+
+.status.pending {
+    color: #e5b96b;
+    background: rgba(229,185,107,0.08);
+}
+
+
+/* ---------- ADMIN NAVIGATION ---------- */
+
+.admin-nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.admin-nav button {
+    background: transparent;
+    color: #999;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 10px 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.admin-nav button:hover {
+    color: #d4af37;
+    border-color: rgba(212,175,55,0.5);
+    background: rgba(212,175,55,0.06);
+}
+
+.admin-nav button.active {
+    color: #111;
+    background: #d4af37;
+    border-color: #d4af37;
+}
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Rupanubhuti <span>°</span>
+    </div>
+
+    <div class="admin-badge">
+        Admin Panel
+    </div>
+<nav class="admin-nav">
+    <button onclick="showSection('dashboard')">Dashboard</button>
+    <button onclick="showSection('bookings')">Bookings</button>
+    <button onclick="showSection('payments')">Payments</button>
+    <button onclick="showSection('deliveries')">Deliveries</button>
+</nav>
+</header>
+
+
+<main class="container">
+
+    <section class="hero">
+
+        <div class="small-title">
+            Photography Studio
+        </div>
+
+        <h2>
+            Studio<br>
+            Overview
+        </h2>
+
+        <p>
+            Manage your photography business from one place.
+        </p>
+
+    </section>
+
+
+    <section id="dashboardSection" class="cards">
+
+        <div class="card">
+            <h3>Total Customers</h3>
+            <p id="totalCustomers">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Bookings</h3>
+            <p id="totalBookings">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Revenue</h3>
+            <p class="amount" id="totalAmount">₹0</p>
+        </div>
+
+        <div class="card">
+            <h3>Confirmed Bookings</h3>
+            <p id="confirmedBookings">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Pending Payments</h3>
+            <p id="pendingPayments">0</p>
+        </div>
+
+        <div class="card">
+            <h3>Pending Deliveries</h3>
+            <p id="pendingDeliveries">0</p>
+        </div>
+
+    </section>
+<section id="bookingsSection" class="management-section">
+
+    <div class="section-heading">
+        <span>BOOKING MANAGEMENT</span>
+        <h2>All Bookings</h2>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Package</th>
+                    <th>Photographer</th>
+                    <th>Event</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+		    <th>Action</th>
+		 
+                </tr>
+            </thead>
+
+            <tbody id="bookingsTableBody">
+                <tr>
+                    <td colspan="9">Loading bookings...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<section id="paymentsSection" class="management-section">
+
+    <div class="section-heading">
+        <span>PAYMENT MANAGEMENT</span>
+        <h2>All Payments</h2>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Booking</th>
+                    <th>Customer</th>
+                    <th>Package</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Mode</th>
+                    <th>Status</th>
+		    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="paymentsTableBody">
+                <tr>
+                    <td colspan="9">Loading payments...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+<section id="deliveriesSection" class="management-section">
+
+    <div class="section-heading">
+        <span>DELIVERY MANAGEMENT</span>
+        <h2>All Deliveries</h2>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Booking</th>
+                    <th>Customer</th>
+                    <th>Package</th>
+                    <th>Delivery Date</th>
+                    <th>Type</th>
+                    <th>Status</th>
+		<th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="deliveriesTableBody">
+                <tr>
+                    <td colspan="8">Loading deliveries...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</section>
+</main>
+
+
+<footer>
+    © 2026 Rupanubhuti Photography Studio · Admin Management System
+</footer>
+
+
+<script>
+
+async function loadDashboard() {
+
+    try {
+
+        const response =
+            await fetch("/api/dashboard");
+
+        const data = await response.json();
+
+
+        document.getElementById("totalCustomers").textContent =
+            data.total_customers;
+
+        document.getElementById("totalBookings").textContent =
+            data.total_bookings;
+
+        document.getElementById("totalAmount").textContent =
+            "₹" + Number(data.total_amount).toLocaleString("en-IN");
+
+        document.getElementById("confirmedBookings").textContent =
+            data.confirmed_bookings;
+
+        document.getElementById("pendingPayments").textContent =
+            data.pending_payments;
+
+        document.getElementById("pendingDeliveries").textContent =
+            data.pending_deliveries;
+
+    }
+
+    catch (error) {
+
+        console.error("Dashboard Error:", error);
+
+        alert("Cannot connect to the backend.");
+
+    }
+
+}
+
+loadDashboard();
+
+async function loadBookings() {
+
+    try {
+
+        const response =
+            await fetch("/api/bookings");
+
+        const bookings = await response.json();
+
+        const tableBody =
+            document.getElementById("bookingsTableBody");
+
+        tableBody.innerHTML = "";
+
+        bookings.forEach(booking => {
+
+            const row = document.createElement("tr");
+
+            const statusClass =
+                booking.booking_status.toLowerCase();
+
+            row.innerHTML = `
+                <td>#${booking.booking_id}</td>
+
+                <td>
+                    ${booking.customer_name}<br>
+                    <small>${booking.phone}</small>
+                </td>
+
+                <td>${booking.package_name}</td>
+
+                <td>${booking.photographer_name}</td>
+
+                <td>${booking.event_type}</td>
+
+                <td>${booking.event_date}</td>
+
+                <td>
+                    ₹${Number(booking.price).toLocaleString("en-IN")}
+                </td>
+
+                <td>
+                    <span class="status ${statusClass}">
+                        ${booking.booking_status}
+                    </span>
+                </td>
+<td>
+    <select
+        class="status-select"
+        onchange="updateBookingStatus(${booking.booking_id}, this.value)"
+    >
+        <option value="Pending" ${booking.booking_status === "Pending" ? "selected" : ""}>
+            Pending
+        </option>
+
+        <option value="Confirmed" ${booking.booking_status === "Confirmed" ? "selected" : ""}>
+            Confirmed
+        </option>
+
+        <option value="Cancelled" ${booking.booking_status === "Cancelled" ? "selected" : ""}>
+            Cancelled
+        </option>
+    </select>
+</td>
+            `;
+
+            tableBody.appendChild(row);
+
+        });
+
+    } catch (error) {
+
+        console.error("Bookings Error:", error);
+
+        document.getElementById("bookingsTableBody").innerHTML = `
+            <tr>
+                <td colspan="9">
+                    Unable to load bookings.
+                </td>
+            </tr>
+        `;
+
+    }
+}
+
+loadBookings();
+async function updateBookingStatus(bookingId, newStatus) {
+
+    try {
+
+        const response = await fetch(
+            `/api/bookings/${bookingId}/status`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    status: newStatus
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Update failed");
+        }
+
+        alert("Booking status updated successfully!");
+
+        loadBookings();
+        loadDashboard();
+
+    } catch (error) {
+
+        console.error("Status Update Error:", error);
+
+        alert("Failed to update booking status.");
+
+    }
+}
+
+async function loadPayments() {
+
+    try {
+
+        const response =
+            await fetch("/api/payments");
+
+        const payments = await response.json();
+
+        const tableBody =
+            document.getElementById("paymentsTableBody");
+
+        tableBody.innerHTML = "";
+
+        payments.forEach(payment => {
+
+            const row = document.createElement("tr");
+
+            const statusClass =
+                payment.payment_status.toLowerCase();
+
+            row.innerHTML = `
+                <td>#${payment.payment_id}</td>
+
+                <td>#${payment.booking_id}</td>
+
+                <td>${payment.customer_name}</td>
+
+                <td>${payment.package_name}</td>
+
+                <td>${payment.payment_date}</td>
+
+                <td>
+                    ₹${Number(payment.amount).toLocaleString("en-IN")}
+                </td>
+
+                <td>${payment.payment_mode}</td>
+
+                <td>
+                    <span class="status ${statusClass}">
+                        ${payment.payment_status}
+                    </span>
+                </td>
+<td>
+    <select
+        class="status-select"
+        onchange="updatePaymentStatus(${payment.payment_id}, this.value)"
+    >
+        <option value="Pending" ${payment.payment_status === "Pending" ? "selected" : ""}>
+            Pending
+        </option>
+
+        <option value="Partial" ${payment.payment_status === "Partial" ? "selected" : ""}>
+            Partial
+        </option>
+
+        <option value="Paid" ${payment.payment_status === "Paid" ? "selected" : ""}>
+            Paid
+        </option>
+    </select>
+</td>
+
+            `;
+
+            tableBody.appendChild(row);
+
+        });
+
+    } catch (error) {
+
+        console.error("Payments Error:", error);
+
+        document.getElementById("paymentsTableBody").innerHTML = `
+            <tr>
+                <td colspan="9">
+                    Unable to load payments.
+                </td>
+            </tr>
+        `;
+
+    }
+}
+loadPayments();
+
+async function updatePaymentStatus(paymentId, newStatus) {
+
+    try {
+
+        const response = await fetch(
+            `/api/payments/${paymentId}/status`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    status: newStatus
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Update failed");
+        }
+
+        alert("Payment status updated successfully!");
+
+        loadPayments();
+        loadDashboard();
+
+    } catch (error) {
+
+        console.error("Payment Status Error:", error);
+
+        alert("Failed to update payment status.");
+
+    }
+}
+
+async function loadDeliveries() {
+
+    try {
+
+        const response =
+            await fetch("/api/deliveries");
+
+        const deliveries = await response.json();
+
+        const tableBody =
+            document.getElementById("deliveriesTableBody");
+
+        tableBody.innerHTML = "";
+
+        deliveries.forEach(delivery => {
+
+            const row = document.createElement("tr");
+
+            const statusClass =
+                delivery.delivery_status.toLowerCase();
+
+            row.innerHTML = `
+                <td>#${delivery.delivery_id}</td>
+
+                <td>#${delivery.booking_id}</td>
+
+                <td>${delivery.customer_name}</td>
+
+                <td>${delivery.package_name}</td>
+
+                <td>${delivery.delivery_date || "Not assigned"}</td>
+
+                <td>${delivery.delivery_type}</td>
+
+                <td>
+                    <span class="status ${statusClass}">
+                        ${delivery.delivery_status}
+                    </span>
+                </td>
+<td>
+    <select
+        class="status-select"
+        onchange="updateDeliveryStatus(${delivery.delivery_id}, this.value)"
+    >
+        <option value="Pending" ${delivery.delivery_status === "Pending" ? "selected" : ""}>
+            Pending
+        </option>
+
+        <option value="Delivered" ${delivery.delivery_status === "Delivered" ? "selected" : ""}>
+            Delivered
+        </option>
+    </select>
+</td>
+            `;
+
+            tableBody.appendChild(row);
+
+        });
+
+    } catch (error) {
+
+        console.error("Deliveries Error:", error);
+
+        document.getElementById("deliveriesTableBody").innerHTML = `
+            <tr>
+                <td colspan="8">
+                    Unable to load deliveries.
+                </td>
+            </tr>
+        `;
+
+    }
+}
+
+loadDeliveries();
+
+async function updateDeliveryStatus(deliveryId, newStatus) {
+
+    try {
+
+        const response = await fetch(
+            `/api/deliveries/${deliveryId}/status`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    status: newStatus
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || "Update failed");
+        }
+
+        alert("Delivery status updated successfully!");
+
+        loadDeliveries();
+        loadDashboard();
+
+    } catch (error) {
+
+        console.error("Delivery Status Error:", error);
+
+        alert("Failed to update delivery status.");
+
+    }
+}
+function showSection(section) {
+
+    const dashboard =
+        document.getElementById("dashboardSection");
+
+    const bookings =
+        document.getElementById("bookingsSection");
+
+    const payments =
+        document.getElementById("paymentsSection");
+
+    const deliveries =
+        document.getElementById("deliveriesSection");
+
+
+    // Hide all sections
+    dashboard.style.display = "none";
+    bookings.style.display = "none";
+    payments.style.display = "none";
+    deliveries.style.display = "none";
+
+
+    // Show selected section
+    if (section === "dashboard") {
+        dashboard.style.display = "grid";
+    }
+
+    else if (section === "bookings") {
+        bookings.style.display = "block";
+    }
+
+    else if (section === "payments") {
+        payments.style.display = "block";
+    }
+
+    else if (section === "deliveries") {
+        deliveries.style.display = "block";
+    }
+}
+
+
+// Open Dashboard by default
+showSection("dashboard");
+</script>
+
+</body>
+</html>

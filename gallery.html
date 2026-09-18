@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rupanubhuti | Gallery</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #090909;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+    cursor: grab;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    padding: 25px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 23px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #c9aa7c;
+}
+
+
+/* ================= TITLE ================= */
+
+.gallery-title {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    mix-blend-mode: difference;
+}
+
+.gallery-title small {
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 15px;
+}
+
+.gallery-title h1 {
+    font-size: clamp(55px, 10vw, 120px);
+
+    font-weight: normal;
+
+    letter-spacing: 12px;
+}
+
+
+/* ================= CANVAS ================= */
+
+.gallery-canvas {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    left: 0;
+    top: 0;
+
+    overflow: visible;
+
+    transform: translate3d(0, 0, 0);
+
+    will-change: transform;
+}
+
+
+/* ================= PHOTOS ================= */
+
+.photo {
+    position: absolute;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transform:
+        translate3d(0, 0, 0)
+        rotate(var(--rotation));
+
+    transition:
+        transform 0.7s cubic-bezier(.2,.8,.2,1),
+        filter 0.5s ease;
+
+    will-change: transform;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.45);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.8s cubic-bezier(.2,.8,.2,1),
+        filter 0.8s ease;
+}
+
+
+/* ================= HOVER ================= */
+
+.photo:hover {
+    z-index: 50;
+
+    transform:
+        translate3d(0, -15px, 0)
+        rotate(0deg)
+        scale(1.06);
+}
+
+.photo:hover img {
+    transform: scale(1.08);
+
+    filter: brightness(0.65);
+}
+
+
+/* ================= VIEW BUTTON ================= */
+
+.view-button {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%) scale(0.8);
+
+    padding: 12px 27px;
+
+    border: 1px solid white;
+
+    border-radius: 30px;
+
+    background: rgba(0,0,0,0.45);
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+.photo:hover .view-button {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+}
+
+
+/* ================= PHOTO POSITIONS ================= */
+
+.photo1 {
+    width: 300px;
+    height: 390px;
+
+    left: 7%;
+    top: 18%;
+
+    --rotation: -6deg;
+}
+
+.photo2 {
+    width: 260px;
+    height: 350px;
+
+    left: 30%;
+    top: 12%;
+
+    --rotation: 5deg;
+}
+
+.photo3 {
+    width: 330px;
+    height: 420px;
+
+    left: 58%;
+    top: 15%;
+
+    --rotation: -4deg;
+}
+
+.photo4 {
+    width: 270px;
+    height: 360px;
+
+    left: 78%;
+    top: 48%;
+
+    --rotation: 7deg;
+}
+
+.photo5 {
+    width: 310px;
+    height: 400px;
+
+    left: 38%;
+    top: 55%;
+
+    --rotation: -7deg;
+}
+
+.photo6 {
+    width: 240px;
+    height: 330px;
+
+    left: 12%;
+    top: 62%;
+
+    --rotation: 4deg;
+}
+
+.photo7 {
+    width: 280px;
+    height: 370px;
+
+    left: 67%;
+    top: 68%;
+
+    --rotation: -5deg;
+}
+
+.photo8 {
+    width: 220px;
+    height: 300px;
+
+    left: 48%;
+    top: 30%;
+
+    --rotation: 8deg;
+}
+
+
+/* ================= BOTTOM INFO ================= */
+
+.bottom-info {
+    position: fixed;
+
+    left: 7%;
+    bottom: 30px;
+
+    z-index: 20;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #aaa;
+}
+
+.drag-info {
+    position: fixed;
+
+    right: 7%;
+    bottom: 30px;
+
+    z-index: 20;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #aaa;
+}
+
+
+/* ================= FULLSCREEN VIEWER ================= */
+
+.viewer {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.97);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 500;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: opacity 0.4s ease;
+}
+
+.viewer.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+.viewer img {
+
+    max-width: 88%;
+
+    max-height: 88%;
+
+    object-fit: contain;
+
+    transform: scale(0.85);
+
+    transition: transform 0.5s ease;
+}
+
+.viewer.active img {
+
+    transform: scale(1);
+}
+
+
+/* ================= CLOSE BUTTON ================= */
+
+.close {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 35px;
+
+    width: 50px;
+
+    height: 50px;
+
+    border: 1px solid white;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 30px;
+
+    line-height: 45px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    z-index: 501;
+}
+
+.close:hover {
+
+    background: white;
+
+    color: black;
+
+    transform: rotate(90deg);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 700px) {
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 8px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    .gallery-title h1 {
+        font-size: 55px;
+        letter-spacing: 6px;
+    }
+
+    .gallery-title small {
+        font-size: 7px;
+        letter-spacing: 3px;
+    }
+
+    .photo1 {
+        width: 180px;
+        height: 240px;
+
+        left: 2%;
+        top: 18%;
+    }
+
+    .photo2 {
+        width: 170px;
+        height: 230px;
+
+        left: 48%;
+        top: 12%;
+    }
+
+    .photo3 {
+        width: 190px;
+        height: 260px;
+
+        left: 58%;
+        top: 48%;
+    }
+
+    .photo4 {
+        width: 160px;
+        height: 220px;
+
+        left: 5%;
+        top: 55%;
+    }
+
+    .photo5 {
+        width: 180px;
+        height: 240px;
+
+        left: 30%;
+        top: 65%;
+    }
+
+    .photo6,
+    .photo7,
+    .photo8 {
+        display: none;
+    }
+
+    .drag-info {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .bottom-info {
+        left: 20px;
+        bottom: 20px;
+    }
+
+    .viewer img {
+        max-width: 94%;
+        max-height: 82%;
+    }
+
+    .close {
+        top: 15px;
+        right: 15px;
+
+        width: 45px;
+        height: 45px;
+
+        line-height: 40px;
+    }
+}
+
+
+/* ================= ENTRANCE ANIMATION ================= */
+
+@keyframes entrance {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(80px)
+            rotate(var(--rotation));
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(var(--rotation));
+    }
+
+}
+
+.photo {
+    animation:
+        entrance 1.3s cubic-bezier(.2,.8,.2,1)
+        backwards;
+}
+
+.photo1 { animation-delay: .1s; }
+.photo2 { animation-delay: .2s; }
+.photo3 { animation-delay: .3s; }
+.photo4 { animation-delay: .4s; }
+.photo5 { animation-delay: .5s; }
+.photo6 { animation-delay: .6s; }
+.photo7 { animation-delay: .7s; }
+.photo8 { animation-delay: .8s; }
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <div class="logo">
+        RUPANUBHUTI
+    </div>
+
+    <div class="nav-links">
+
+        <a href="services.html">
+            SERVICES
+        </a>
+
+        <a href="contact.html">
+            CONTACT
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= TITLE ================= -->
+
+<div class="gallery-title">
+
+    <small>
+        MOMENTS • EMOTIONS • MEMORIES
+    </small>
+
+    <h1>
+        GALLERY
+    </h1>
+
+</div>
+
+
+<!-- ================= PHOTO CANVAS ================= -->
+
+<div class="gallery-canvas" id="canvas">
+
+
+    <div class="photo photo1">
+
+        <img
+            src="images/119063983897898498.jpg"
+            alt="Rupanubhuti">
+
+        <span class="view-button">
+            VIEW
+        </span>
+
+    </div>
+
+
+    <div class="photo photo2">
+
+        <img
+            src="images/“Golden Silence – A Sunset of Freedom”.jpg"
+            alt="Rupanubhuti">
+
+        <span class="view-button">
+            VIEW
+        </span>
+
+    </div>
+
+
+    <div class="photo photo3">
+
+        <img
+            src="images/lovey dovey.jpg"
+            alt="Rupanubhuti">
+
+        <span class="view-button">
+            VIEW
+        </span>
+
+    </div>
+
+
+    <div class="photo photo4">
+
+        <img
+            src="images/photography  reddit.jpg"
+            alt="Rupanubhuti">
+
+        <span class="view-button">
+            VIEW
+        </span>
+
+    </div>
+
+
+    <div class="photo photo5">
+
+        <img
+            src="images/gem.jpg"
+            alt="Rupanubhuti">
+
+        <span class="view-button">
+            VIEW
+        </span>
+
+    </div>
+
+
+    <div class="photo photo6">
+
+        <img
+            src="images/Capturing Timeless Wedding Moments with Elegance.jpg"
+            alt="Rupanubhuti">
+
+        <span class="view-button">
+            VIEW
+        </span>
+
+    </div>
+
+
+    <div class="photo photo7">
+
+        <img
+            src="images/182184747414323348.jpg"
+            alt="Rupanubhuti">
+
+        <span class="view-button">
+            VIEW
+        </span>
+
+    </div>
+
+
+    <div class="photo photo8">
+
+        <img
+            src="images/118149190220939566.jpg"
+            alt="Rupanubhuti">
+
+        <span class="view-button">
+            VIEW
+        </span>
+
+    </div>
+
+
+</div>
+
+
+<!-- ================= INFO ================= -->
+
+<div class="bottom-info">
+    RUPANUBHUTI © 2026
+</div>
+
+<div class="drag-info">
+    DRAG TO EXPLORE ↔
+</div>
+
+
+<!-- ================= FULLSCREEN VIEWER ================= -->
+
+<div class="viewer" id="viewer">
+
+    <button
+        class="close"
+        id="close"
+        type="button">
+
+        &times;
+
+    </button>
+
+    <img
+        id="viewerImage"
+        src=""
+        alt="Rupanubhuti">
+
+</div>
+
+
+<script>
+
+
+/* =====================================================
+   CANVAS DRAG
+===================================================== */
+
+const canvas =
+    document.getElementById("canvas");
+
+let isDragging = false;
+
+let startX = 0;
+let startY = 0;
+
+let currentX = 0;
+let currentY = 0;
+
+let targetX = 0;
+let targetY = 0;
+
+
+/* MOUSE DOWN */
+
+document.addEventListener("mousedown", function(e) {
+
+    if (
+        e.target.closest(".photo") ||
+        e.target.closest("nav") ||
+        e.target.closest(".viewer")
+    ) {
+        return;
+    }
+
+    isDragging = true;
+
+    startX =
+        e.clientX - currentX;
+
+    startY =
+        e.clientY - currentY;
+
+    document.body.style.cursor =
+        "grabbing";
+
+});
+
+
+/* MOUSE MOVE */
+
+document.addEventListener("mousemove", function(e) {
+
+    if (!isDragging) {
+        return;
+    }
+
+    targetX =
+        e.clientX - startX;
+
+    targetY =
+        e.clientY - startY;
+
+});
+
+
+/* MOUSE UP */
+
+document.addEventListener("mouseup", function() {
+
+    isDragging = false;
+
+    document.body.style.cursor =
+        "grab";
+
+});
+
+
+/* =====================================================
+   TOUCH DRAG
+===================================================== */
+
+document.addEventListener("touchstart", function(e) {
+
+    if (
+        e.target.closest(".photo") ||
+        e.target.closest("nav") ||
+        e.target.closest(".viewer")
+    ) {
+        return;
+    }
+
+    const touch =
+        e.touches[0];
+
+    isDragging = true;
+
+    startX =
+        touch.clientX - currentX;
+
+    startY =
+        touch.clientY - currentY;
+
+}, { passive: true });
+
+
+document.addEventListener("touchmove", function(e) {
+
+    if (!isDragging) {
+        return;
+    }
+
+    const touch =
+        e.touches[0];
+
+    targetX =
+        touch.clientX - startX;
+
+    targetY =
+        touch.clientY - startY;
+
+}, { passive: true });
+
+
+document.addEventListener("touchend", function() {
+
+    isDragging = false;
+
+});
+
+
+/* =====================================================
+   SMOOTH CANVAS MOVEMENT
+===================================================== */
+
+function animate() {
+
+    currentX +=
+        (targetX - currentX) * 0.08;
+
+    currentY +=
+        (targetY - currentY) * 0.08;
+
+    canvas.style.transform =
+        `translate3d(${currentX}px, ${currentY}px, 0)`;
+
+    requestAnimationFrame(animate);
+
+}
+
+animate();
+
+
+/* =====================================================
+   PARALLAX
+===================================================== */
+
+document.addEventListener("mousemove", function(e) {
+
+    if (isDragging) {
+        return;
+    }
+
+    const x =
+        (e.clientX /
+        window.innerWidth) - 0.5;
+
+    const y =
+        (e.clientY /
+        window.innerHeight) - 0.5;
+
+
+    document
+        .querySelectorAll(".photo")
+        .forEach(function(photo, index) {
+
+            const strength =
+                (index + 1) * 2;
+
+            photo.style.marginLeft =
+                `${x * strength}px`;
+
+            photo.style.marginTop =
+                `${y * strength}px`;
+
+        });
+
+});
+
+
+/* =====================================================
+   FULLSCREEN IMAGE
+===================================================== */
+
+const photos =
+    document.querySelectorAll(".photo");
+
+const viewer =
+    document.getElementById("viewer");
+
+const viewerImage =
+    document.getElementById("viewerImage");
+
+const closeButton =
+    document.getElementById("close");
+
+
+/* OPEN */
+
+photos.forEach(function(photo) {
+
+    photo.addEventListener("click", function() {
+
+        const image =
+            photo.querySelector("img");
+
+        viewerImage.src =
+            image.src;
+
+        viewer.classList.add("active");
+
+        document.body.style.overflow =
+            "hidden";
+
+    });
+
+});
+
+
+/* CLOSE BUTTON */
+
+closeButton.addEventListener("click", function(e) {
+
+    e.stopPropagation();
+
+    viewer.classList.remove("active");
+
+    document.body.style.overflow =
+        "hidden";
+
+});
+
+
+/* CLICK DARK AREA */
+
+viewer.addEventListener("click", function(e) {
+
+    if (e.target === viewer) {
+
+        viewer.classList.remove("active");
+
+    }
+
+});
+
+
+/* ESC */
+
+document.addEventListener("keydown", function(e) {
+
+    if (e.key === "Escape") {
+
+        viewer.classList.remove("active");
+
+    }
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

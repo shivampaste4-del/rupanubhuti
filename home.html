@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rupanubhuti | Home</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0b0b;
+            color: white;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            padding: 28px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            z-index: 10;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d6b98c;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            height: 100vh;
+            min-height: 650px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.35),
+                    rgba(0,0,0,0.75)
+                ),
+                url("home.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 20px;
+
+            animation: heroAppear 1.8s ease;
+        }
+
+        .small-title {
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+            letter-spacing: 7px;
+
+            margin-bottom: 25px;
+
+            color: #ddd;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 115px);
+
+            letter-spacing: 12px;
+            text-transform: uppercase;
+
+            font-weight: normal;
+            line-height: 1;
+        }
+
+        .hero h1 span {
+            display: block;
+
+            font-style: italic;
+
+            font-size: 0.45em;
+            letter-spacing: 6px;
+
+            margin-top: 20px;
+        }
+
+        .hero-text {
+            margin-top: 30px;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
+            letter-spacing: 3px;
+
+            color: #ddd;
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .hero-button {
+            display: inline-block;
+
+            margin-top: 40px;
+
+            padding: 15px 35px;
+
+            border: 1px solid white;
+            border-radius: 40px;
+
+            color: white;
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+            letter-spacing: 3px;
+
+            transition: 0.5s;
+        }
+
+        .hero-button:hover {
+            background: white;
+            color: black;
+
+            transform: translateY(-5px);
+        }
+
+
+        /* ================= SCROLL ================= */
+
+        .scroll {
+            position: absolute;
+
+            bottom: 30px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            font-family: Arial, sans-serif;
+
+            font-size: 10px;
+            letter-spacing: 4px;
+
+            animation: scrollBounce 2s infinite;
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            padding: 120px 10%;
+
+            text-align: center;
+
+            background: #111;
+        }
+
+        .section-label {
+            color: #c9aa7c;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+            letter-spacing: 5px;
+
+            margin-bottom: 20px;
+        }
+
+        .about h2 {
+            font-size: 45px;
+
+            font-weight: normal;
+
+            margin-bottom: 30px;
+        }
+
+        .about p {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #aaa;
+
+            line-height: 1.9;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
+        }
+
+
+        /* ================= SERVICES ================= */
+
+        .services {
+            padding: 110px 8%;
+
+            background: #0b0b0b;
+
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 45px;
+
+            font-weight: normal;
+
+            margin-bottom: 60px;
+        }
+
+        .service-container {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .service-card {
+            padding: 55px 30px;
+
+            border: 1px solid #292929;
+
+            transition: 0.5s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+
+            border-color: #c9aa7c;
+        }
+
+        .service-number {
+            font-size: 13px;
+
+            color: #c9aa7c;
+
+            letter-spacing: 3px;
+        }
+
+        .service-card h3 {
+            margin: 25px 0 15px;
+
+            font-size: 25px;
+
+            font-weight: normal;
+        }
+
+        .service-card p {
+            color: #888;
+
+            font-family: Arial, sans-serif;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+
+        /* ================= GALLERY ================= */
+
+        .gallery {
+            padding: 110px 7%;
+
+            background: #111;
+
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 45px;
+
+            font-weight: normal;
+
+            margin-bottom: 50px;
+        }
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr;
+
+            grid-auto-rows: 250px;
+
+            gap: 12px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.7s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+        }
+
+        .gallery-button {
+            display: inline-block;
+
+            margin-top: 45px;
+
+            padding: 14px 35px;
+
+            border: 1px solid #777;
+
+            border-radius: 30px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            transition: 0.4s;
+        }
+
+        .gallery-button:hover {
+            background: white;
+
+            color: black;
+        }
+
+
+        /* ================= QUOTE ================= */
+
+        .quote {
+            min-height: 450px;
+
+            padding: 100px 10%;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.65),
+                    rgba(0,0,0,.65)
+                ),
+                url("quote.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .quote h2 {
+            font-size: clamp(35px, 5vw, 65px);
+
+            font-weight: normal;
+
+            font-style: italic;
+
+            line-height: 1.3;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            padding: 110px 10%;
+
+            text-align: center;
+
+            background: #0b0b0b;
+        }
+
+        .contact h2 {
+            font-size: 45px;
+
+            font-weight: normal;
+
+            margin-bottom: 25px;
+        }
+
+        .contact p {
+            color: #999;
+
+            font-family: Arial, sans-serif;
+
+            margin-bottom: 35px;
+        }
+
+        .contact-button {
+            display: inline-block;
+
+            padding: 15px 40px;
+
+            border-radius: 30px;
+
+            background: white;
+
+            color: black;
+
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            letter-spacing: 2px;
+
+            font-size: 12px;
+
+            transition: 0.4s;
+        }
+
+        .contact-button:hover {
+            transform: scale(1.08);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 35px;
+
+            border-top: 1px solid #222;
+
+            text-align: center;
+
+            background: #080808;
+        }
+
+        footer h3 {
+            letter-spacing: 5px;
+
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            color: #666;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+        }
+
+
+        /* ================= ANIMATIONS ================= */
+
+        @keyframes heroAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes scrollBounce {
+
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, -10px);
+            }
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 20px;
+
+                flex-direction: column;
+
+                gap: 18px;
+            }
+
+            .nav-logo {
+                font-size: 19px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 10px;
+
+                letter-spacing: 1px;
+            }
+
+            .hero h1 {
+                letter-spacing: 5px;
+            }
+
+            .hero-text {
+                font-size: 12px;
+
+                line-height: 1.7;
+            }
+
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+
+                grid-auto-rows: 180px;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 2;
+
+                grid-row: span 1;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 1;
+            }
+
+            .gallery-item {
+                height: 230px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <div class="nav-logo">
+            RUPANUBHUTI
+        </div>
+
+        <div class="nav-links">
+
+            <!-- NO HOME HERE -->
+
+            <a href="gallery.html">
+                GALLERY
+            </a>
+
+            <a href="services.html">
+                SERVICES
+            </a>
+
+            <a href="contact.html">
+                CONTACT
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                PHOTOGRAPHY • FILMS • MEMORIES
+            </div>
+
+            <h1>
+
+                RUPANUBHUTI
+
+                <span>
+                    Photography Studio
+                </span>
+
+            </h1>
+
+            <p class="hero-text">
+
+                WE DON'T JUST CAPTURE MOMENTS.<br>
+                WE PRESERVE EMOTIONS.
+
+            </p>
+
+            <a href="gallery.html" class="hero-button">
+                DISCOVER OUR WORK
+            </a>
+
+        </div>
+
+
+        <div class="scroll">
+            SCROLL ↓
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about">
+
+        <div class="section-label">
+            OUR STORY
+        </div>
+
+        <h2>
+            Every Picture Has A Story
+        </h2>
+
+        <p>
+
+            Welcome to Rupanubhuti — a space where
+            emotions, people and beautiful moments
+            come together.
+
+            From intimate portraits to unforgettable
+            celebrations, we transform real moments
+            into timeless photographs.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="services">
+
+        <div class="section-label">
+            WHAT WE DO
+        </div>
+
+        <h2>
+            Our Expertise
+        </h2>
+
+
+        <div class="service-container">
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <h3>
+                    Wedding
+                </h3>
+
+                <p>
+                    Capturing the emotions,
+                    celebrations and unforgettable
+                    moments of your special day.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <h3>
+                    Portraits
+                </h3>
+
+                <p>
+                    Elegant portraits that capture
+                    your personality, confidence
+                    and unique aura.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <h3>
+                    Events
+                </h3>
+
+                <p>
+                    Professional photography for
+                    birthdays, celebrations,
+                    corporate events and more.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= GALLERY PREVIEW ================= -->
+
+    <section class="gallery">
+
+        <div class="section-label">
+            SELECTED MOMENTS
+        </div>
+
+        <h2>
+            A Glimpse Of Our Work
+        </h2>
+
+
+        <div class="gallery-grid">
+
+
+            <div class="gallery-item">
+                <img src="images/289778557298643463.jpg" alt="Rupanubhuti Photography">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/PHOTOSHOOT POSES WITH BABY FOR PARENTS.jpg" alt="Rupanubhuti Photography">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/Premium Lifestyle Portrait Fashion.jpg" alt="Rupanubhuti Photography">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/Since 2020, l’ve curated annual photo & video….jpg" alt="Rupanubhuti Photography">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="images/403283341639229934.jpg" alt="Rupanubhuti Photography">
+            </div>
+
+
+        </div>
+
+
+        <a href="gallery.html" class="gallery-button">
+            VIEW FULL GALLERY
+        </a>
+
+    </section>
+
+
+    <!-- ================= QUOTE ================= -->
+
+    <section class="quote">
+
+        <h2>
+
+            "Photography is the art<br>
+            of making memories timeless."
+
+        </h2>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact">
+
+        <div class="section-label">
+            LET'S CREATE
+        </div>
+
+        <h2>
+            Your Story Deserves To Be Captured.
+        </h2>
+
+        <p>
+            Ready to create something beautiful?
+        </p>
+
+        <a href="contact.html" class="contact-button">
+            BOOK YOUR SESSION
+        </a>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>
+            RUPANUBHUTI
+        </h3>
+
+        <p>
+            © 2026 Rupanubhuti Photography Studio.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

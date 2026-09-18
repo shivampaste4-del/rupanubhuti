@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rupanubhuti | Services</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #090909;
+            color: white;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+
+        /* ================= NAVIGATION ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            padding: 25px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(0, 0, 0, 0.75);
+
+            backdrop-filter: blur(10px);
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 23px;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+            letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #c9aa7c;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        .services-header {
+            height: 55vh;
+            min-height: 450px;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.8)
+                ),
+                url("services-bg.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding-top: 70px;
+        }
+
+        .header-content {
+            animation: appear 1.5s ease;
+        }
+
+        .small-title {
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 6px;
+
+            color: #c9aa7c;
+
+            margin-bottom: 25px;
+        }
+
+        .services-header h1 {
+            font-size: clamp(55px, 9vw, 100px);
+
+            font-weight: normal;
+
+            letter-spacing: 10px;
+        }
+
+        .services-header p {
+            margin-top: 20px;
+
+            font-family: Arial, sans-serif;
+
+            color: #aaa;
+
+            letter-spacing: 3px;
+
+            font-size: 13px;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            text-align: center;
+
+            padding: 100px 10%;
+
+            background: #111;
+        }
+
+        .intro h2 {
+            font-size: 42px;
+
+            font-weight: normal;
+
+            margin-bottom: 25px;
+        }
+
+        .intro p {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: #999;
+
+            font-family: Arial, sans-serif;
+
+            line-height: 1.8;
+
+            font-size: 15px;
+        }
+
+
+        /* ================= SERVICES ================= */
+
+        .services {
+            padding: 100px 7%;
+
+            background: #090909;
+        }
+
+        .service-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+
+        /* SERVICE CARD */
+
+        .service-card {
+            min-height: 360px;
+
+            padding: 45px;
+
+            border: 1px solid #292929;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: 0.5s;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: flex-end;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+
+            border-color: #c9aa7c;
+        }
+
+
+        /* CARD IMAGES */
+
+        .wedding {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.2),
+                    rgba(0,0,0,0.85)
+                ),
+                url("wedding.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .portrait {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.2),
+                    rgba(0,0,0,0.85)
+                ),
+                url("portrait.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .event {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.2),
+                    rgba(0,0,0,0.85)
+                ),
+                url("event.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .fashion {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.2),
+                    rgba(0,0,0,0.85)
+                ),
+                url("fashion.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.2),
+                    rgba(0,0,0,0.85)
+                ),
+                url("product.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cinematic {
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.2),
+                    rgba(0,0,0,0.85)
+                ),
+                url("cinematic.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        /* CARD CONTENT */
+
+        .service-number {
+            color: #c9aa7c;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+        .service-card h3 {
+            font-size: 32px;
+
+            font-weight: normal;
+
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #ddd;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            max-width: 500px;
+        }
+
+
+        /* ================= PROCESS ================= */
+
+        .process {
+            padding: 110px 8%;
+
+            background: #111;
+
+            text-align: center;
+        }
+
+        .section-label {
+            color: #c9aa7c;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 5px;
+
+            margin-bottom: 20px;
+        }
+
+        .process h2 {
+            font-size: 45px;
+
+            font-weight: normal;
+
+            margin-bottom: 60px;
+        }
+
+        .process-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .process-card {
+            padding: 30px 20px;
+
+            border-top: 1px solid #333;
+        }
+
+        .process-card span {
+            color: #c9aa7c;
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+        }
+
+        .process-card h3 {
+            margin: 18px 0 12px;
+
+            font-size: 21px;
+
+            font-weight: normal;
+        }
+
+        .process-card p {
+            color: #777;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 110px 10%;
+
+            text-align: center;
+
+            background: #090909;
+        }
+
+        .cta h2 {
+            font-size: 45px;
+
+            font-weight: normal;
+
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            color: #888;
+
+            font-family: Arial, sans-serif;
+
+            margin-bottom: 35px;
+        }
+
+        .cta a {
+            display: inline-block;
+
+            padding: 15px 38px;
+
+            border: 1px solid white;
+
+            border-radius: 30px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            transition: 0.4s;
+        }
+
+        .cta a:hover {
+            background: white;
+
+            color: black;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 35px;
+
+            text-align: center;
+
+            border-top: 1px solid #222;
+
+            background: #060606;
+        }
+
+        footer h3 {
+            letter-spacing: 5px;
+
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #666;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 11px;
+        }
+
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+
+                gap: 15px;
+
+                padding: 18px;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 9px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .services-header h1 {
+                letter-spacing: 6px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                min-height: 300px;
+
+                padding: 30px;
+            }
+
+            .service-card h3 {
+                font-size: 27px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <nav>
+
+        <div class="logo">
+            RUPANUBHUTI
+        </div>
+
+        <div class="nav-links">
+
+            <a href="gallery.html">
+                GALLERY
+            </a>
+
+            <a href="services.html">
+                SERVICES
+            </a>
+
+            <a href="contact.html">
+                CONTACT
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <section class="services-header">
+
+        <div class="header-content">
+
+            <div class="small-title">
+                RUPANUBHUTI PHOTOGRAPHY STUDIO
+            </div>
+
+            <h1>
+                SERVICES
+            </h1>
+
+            <p>
+                WE CAPTURE YOUR MOMENTS. YOU KEEP THE MEMORIES.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="intro">
+
+        <div class="section-label">
+            WHAT WE OFFER
+        </div>
+
+        <h2>
+            Your Story. Our Lens.
+        </h2>
+
+        <p>
+
+            Every occasion deserves to be remembered.
+            At Rupanubhuti, we combine creativity,
+            emotion and professional photography to
+            create images that you will treasure forever.
+
+        </p>
+
+    </section>
+
+
+    <!-- ================= SERVICE CARDS ================= -->
+
+    <section class="services">
+
+        <div class="service-grid">
+
+
+            <!-- WEDDING -->
+
+            <div class="service-card wedding">
+
+                <div class="service-number">
+                    01 — WEDDINGS
+                </div>
+
+                <h3>
+                    Wedding Photography
+                </h3>
+
+                <p>
+                    From the first look to the final celebration,
+                    we capture every emotion and unforgettable
+                    moment of your wedding day.
+                </p>
+
+            </div>
+
+
+            <!-- PORTRAIT -->
+
+            <div class="service-card portrait">
+
+                <div class="service-number">
+                    02 — PORTRAITS
+                </div>
+
+                <h3>
+                    Portrait Photography
+                </h3>
+
+                <p>
+                    Personal, elegant and expressive portraits
+                    designed to showcase your personality
+                    and confidence.
+                </p>
+
+            </div>
+
+
+            <!-- EVENTS -->
+
+            <div class="service-card event">
+
+                <div class="service-number">
+                    03 — EVENTS
+                </div>
+
+                <h3>
+                    Event Photography
+                </h3>
+
+                <p>
+                    Birthdays, parties, celebrations and
+                    corporate events captured with
+                    creativity and attention to detail.
+                </p>
+
+            </div>
+
+
+            <!-- FASHION -->
+
+            <div class="service-card fashion">
+
+                <div class="service-number">
+                    04 — FASHION
+                </div>
+
+                <h3>
+                    Fashion Photography
+                </h3>
+
+                <p>
+                    Stylish editorial photography for
+                    models, designers, portfolios and
+                    fashion campaigns.
+                </p>
+
+            </div>
+
+
+            <!-- PRODUCT -->
+
+            <div class="service-card product">
+
+                <div class="service-number">
+                    05 — PRODUCT
+                </div>
+
+                <h3>
+                    Product Photography
+                </h3>
+
+                <p>
+                    Clean and professional product images
+                    created to make your brand and products
+                    stand out.
+                </p>
+
+            </div>
+
+
+            <!-- CINEMATIC -->
+
+            <div class="service-card cinematic">
+
+                <div class="service-number">
+                    06 — FILMS
+                </div>
+
+                <h3>
+                    Cinematic Films
+                </h3>
+
+                <p>
+                    Beautiful cinematic videos that turn
+                    your most important moments into
+                    stories you can relive.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROCESS ================= -->
+
+    <section class="process">
+
+        <div class="section-label">
+            OUR PROCESS
+        </div>
+
+        <h2>
+            From Moment To Memory
+        </h2>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card">
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Connect
+                </h3>
+
+                <p>
+                    Tell us about your event,
+                    idea or photography needs.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Plan
+                </h3>
+
+                <p>
+                    We discuss the concept,
+                    location and perfect style.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Capture
+                </h3>
+
+                <p>
+                    Our team captures the
+                    moments naturally and creatively.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <span>
+                    04
+                </span>
+
+                <h3>
+                    Relive
+                </h3>
+
+                <p>
+                    Receive beautifully edited
+                    photographs and cinematic memories.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <div class="section-label">
+            LET'S CREATE
+        </div>
+
+        <h2>
+            Ready To Tell Your Story?
+        </h2>
+
+        <p>
+            Let's turn your moments into memories.
+        </p>
+
+        <a href="contact.html">
+            BOOK YOUR SESSION
+        </a>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>
+            RUPANUBHUTI
+        </h3>
+
+        <p>
+            © 2026 Rupanubhuti Photography Studio.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
