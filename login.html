@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rupanubhuti | Admin Login</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #090909;
+    color: white;
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 90%;
+    max-width: 420px;
+    padding: 45px 35px;
+    background: #111;
+    border: 1px solid #39301c;
+    text-align: center;
+    box-shadow: 0 0 35px rgba(212,175,55,0.08);
+}
+
+.logo {
+    color: #d4af37;
+    letter-spacing: 5px;
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-bottom: 35px;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 18px;
+    background: #090909;
+    border: 1px solid #444;
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: #d4af37;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #d4af37;
+    border: none;
+    color: #090909;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 2px;
+    margin-top: 8px;
+}
+
+button:hover {
+    background: #f0cf65;
+}
+
+#message {
+    margin-top: 20px;
+    color: #ff7777;
+    font-size: 14px;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.back:hover {
+    color: #d4af37;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">RUPANUBHUTI</div>
+    <div class="subtitle">ADMINISTRATOR LOGIN</div>
+
+    <form id="loginForm">
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            autocomplete="username"
+            required
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            autocomplete="current-password"
+            required
+        >
+
+        <button type="submit">LOGIN</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <a href="/" class="back">← Back to Home</a>
+
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
+    const message = document.getElementById("message");
+
+    message.style.color = "#ff7777";
+    message.textContent = "Please wait...";
+
+    try {
+        const response = await fetch("/api/auth/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            message.style.color = "#d4af37";
+            message.textContent = "Login successful!";
+
+            window.location.href = "/admin.html";
+        } else {
+            message.textContent = data.message || "Login failed";
+        }
+
+    } catch (error) {
+        message.textContent = "Server connection failed";
+    }
+});
+</script>
+
+</body>
+</html>

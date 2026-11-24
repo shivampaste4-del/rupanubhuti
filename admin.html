@@ -376,6 +376,47 @@ tbody tr:hover {
     background: #d4af37;
     border-color: #d4af37;
 }
+async function logoutAdmin() {
+
+    alert("Logging out...");
+
+    try {
+
+        const response = await fetch("/api/auth/logout", {
+            method: "POST",
+            credentials: "same-origin"
+        });
+
+        const result = await response.json();
+
+        console.log("Logout response:", result);
+
+        if (response.ok) {
+
+            alert("Logout successful!");
+
+            window.location.replace("/login.html");
+
+        } else {
+
+            alert(result.message || "Logout failed!");
+
+        }
+
+    } catch (error) {
+
+        console.error("Logout error:", error);
+
+        alert("Server connection error!");
+
+    }
+
+}
+#adminUsername {
+    color: #fff;
+    font-weight: 600;
+    margin-left: 5px;
+}
     </style>
 </head>
 
@@ -386,15 +427,19 @@ tbody tr:hover {
     <div class="logo">
         Rupanubhuti <span>°</span>
     </div>
-
-    <div class="admin-badge">
-        Admin Panel
-    </div>
+<div class="admin-badge">
+    Admin Panel |
+    <span id="adminUsername">Loading...</span>
+</div>
+    
 <nav class="admin-nav">
     <button onclick="showSection('dashboard')">Dashboard</button>
     <button onclick="showSection('bookings')">Bookings</button>
     <button onclick="showSection('payments')">Payments</button>
     <button onclick="showSection('deliveries')">Deliveries</button>
+   <button type="button" class="logout-btn" id="logoutButton">
+    Logout ↗
+</button>
 </nav>
 </header>
 
@@ -1001,6 +1046,50 @@ function showSection(section) {
 
 // Open Dashboard by default
 showSection("dashboard");
+document.getElementById("logoutButton").addEventListener("click", async function () {
+
+    alert("Logout function started!");
+
+    try {
+        const response = await fetch("/api/auth/logout", {
+            method: "POST",
+            credentials: "same-origin"
+        });
+
+        const data = await response.json();
+
+        alert(data.message);
+
+        if (response.ok) {
+            window.location.href = "/login.html";
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Logout error: " + error.message);
+    }
+
+});
+async function loadAdminInfo() {
+    try {
+        const response = await fetch("/api/auth/me");
+
+        if (!response.ok) {
+            window.location.href = "/login.html";
+            return;
+        }
+
+        const data = await response.json();
+
+        document.getElementById("adminUsername").textContent =
+            data.admin.username;
+
+    } catch (error) {
+        console.error("Admin Info Error:", error);
+    }
+}
+
+loadAdminInfo();
 </script>
 
 </body>
